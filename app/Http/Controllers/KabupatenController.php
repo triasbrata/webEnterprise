@@ -3,23 +3,23 @@
 * 
 */
 use App\Http\Controllers\Controller as BaseController;
-use App\Provinsi;
+use App\Kabupaten;
 use Session;
 
-class ProvinsiController extends BaseController
+class KabupatenController extends BaseController
 {
 	private $model ;
 	private $formLocation;
-	function __construct(Provinsi $model) {
+	function __construct(Kabupaten $model) {
 		$this->model = $model;
-		$this->formLocation = 'provinsi.form';
+		$this->formLocation = 'kabupaten.form';
 		parent::__construct();
 	}
 	public function index()
 	{
 		$data = $this->model->all();
 		$session = $this->session;
-		return view('provinsi.index',compact('data','session'));
+		return view('kabupaten.index',compact('data','session'));
 		
 	}
 
@@ -30,7 +30,7 @@ class ProvinsiController extends BaseController
 	{
 		$session = $this->session;
 		$form = $this->formLocation;
-		return view('provinsi.create',compact('form','session'));
+		return view('kabupaten.create',compact('form','session'));
 	}
 
 	/**
@@ -41,7 +41,7 @@ class ProvinsiController extends BaseController
 		$data = $this->model->find($id);
 		$session = $this->session;
 		$form = $this->formLocation;
-		return view('provinsi.edit',compact('form','session','data'));
+		return view('kabupaten.edit',compact('form','session','data'));
 	}
 
 	/**
@@ -69,7 +69,7 @@ class ProvinsiController extends BaseController
 		if($this->validate()->fails()){
 			return redirect()->back()->with('error',$this->validate()->errors());
 		}
-		return $this->model->fill($this->request->only('label'))->save() ? redirect()->route('provinsi.index')->with('success','Provinsi Berhasil diperbarui/ditambahkan') : redirect()->back() ;
+		return $this->model->fill($this->request->only('label'))->save() ? redirect()->route('kabupaten.index')->with('success','Kabupaten Berhasil diperbarui/ditambahkan') : redirect()->back() ;
 	}
 	/**
 	 *  fungsi untuk menghapus data pada database
@@ -77,7 +77,7 @@ class ProvinsiController extends BaseController
 	public function destroy($id)
 	{
 		$this->model = $this->model->find($id);
-		return $this->model->delete()  ? redirect()->route('provinsi.index')->with('success','Provinsi Berhasil dihapus') : redirect()->back() ;
+		return $this->model->delete()  ? redirect()->route('kabupaten.index')->with('success','Kabupaten Berhasil dihapus') : redirect()->back() ;
 	}
 
 	/**
@@ -95,7 +95,7 @@ class ProvinsiController extends BaseController
 	protected function attributes()
 	{
 		return[
-			'label'=>'Provinsi'
+			'label'=>'Kabupaten'
 		];
 	}
 }

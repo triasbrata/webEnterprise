@@ -4,10 +4,10 @@ use Illuminate\Database\Eloquent\Model;
 /**
 * 
 */
-class Provinsi extends Model
+class StatusHubungan extends Model
 {
 	
 	public $timestamps = false;
-	protected $fillable = ['label'];
+	protected $fillable = ['title'];
 	
 }

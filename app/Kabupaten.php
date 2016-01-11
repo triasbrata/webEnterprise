@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
 * 
 */
-class Provinsi extends Model
+class Kabupaten extends Model
 {
 	
 	public $timestamps = false;

@@ -3,24 +3,25 @@
 * 
 */
 use App\Http\Controllers\Controller as BaseController;
-use App\Provinsi;
+use App\StatusHubungan;
 use Session;
 
-class ProvinsiController extends BaseController
+class StatusHubunganController extends BaseController
 {
 	private $model ;
 	private $formLocation;
-	function __construct(Provinsi $model) {
+	function __construct(StatusHubungan $model) {
 		$this->model = $model;
-		$this->formLocation = 'provinsi.form';
+		$this->formLocation = 'statushubungan.form';
 		parent::__construct();
 	}
 	public function index()
 	{
 		$data = $this->model->all();
 		$session = $this->session;
-		return view('provinsi.index',compact('data','session'));
-		
+		return view('statushubungan.index',compact('data','session'));
+		//sama saja dengan
+		//return view('statushubungan.index',array('data'=>$data,'session'=>$session));
 	}
 
 	/**
@@ -30,7 +31,7 @@ class ProvinsiController extends BaseController
 	{
 		$session = $this->session;
 		$form = $this->formLocation;
-		return view('provinsi.create',compact('form','session'));
+		return view('statushubungan.create',compact('form','session'));
 	}
 
 	/**
@@ -41,7 +42,7 @@ class ProvinsiController extends BaseController
 		$data = $this->model->find($id);
 		$session = $this->session;
 		$form = $this->formLocation;
-		return view('provinsi.edit',compact('form','session','data'));
+		return view('statushubungan.edit',compact('form','session','data'));
 	}
 
 	/**
@@ -69,7 +70,7 @@ class ProvinsiController extends BaseController
 		if($this->validate()->fails()){
 			return redirect()->back()->with('error',$this->validate()->errors());
 		}
-		return $this->model->fill($this->request->only('label'))->save() ? redirect()->route('provinsi.index')->with('success','Provinsi Berhasil diperbarui/ditambahkan') : redirect()->back() ;
+		return $this->model->fill($this->request->only('title'))->save() ? redirect()->route('statushubungan.index')->with('success','Status Hubungan Berhasil diperbarui/ditambahkan') : redirect()->back() ;
 	}
 	/**
 	 *  fungsi untuk menghapus data pada database
@@ -77,7 +78,7 @@ class ProvinsiController extends BaseController
 	public function destroy($id)
 	{
 		$this->model = $this->model->find($id);
-		return $this->model->delete()  ? redirect()->route('provinsi.index')->with('success','Provinsi Berhasil dihapus') : redirect()->back() ;
+		return $this->model->delete()  ? redirect()->route('statushubungan.index')->with('success','Status Hubungan Berhasil dihapus') : redirect()->back() ;
 	}
 
 	/**
@@ -86,7 +87,7 @@ class ProvinsiController extends BaseController
 	protected function rules()
 	{
 		return[
-			'label' => 'required'
+			'title' => 'required'
 		];
 	}
 	/**
@@ -95,7 +96,7 @@ class ProvinsiController extends BaseController
 	protected function attributes()
 	{
 		return[
-			'label'=>'Provinsi'
+			'title'=>'StatusHubungan'
 		];
 	}
 }
