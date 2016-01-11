@@ -113,7 +113,7 @@
 </div>
 <div class="form-group col-md-12">
 	<div class="input-group">
-		<span class="input-group-addon"><label for="title">Status Perkawinan</label></span>
+		<span class="input-group-addon"><label for="title">Status Kewarganegaraan</label></span>
 		<select  name="status_perkawinan"  id="status_perkawinan"class="form-control">
 			@foreach ( ['WNI','WNA'] as $key)
 				<option
