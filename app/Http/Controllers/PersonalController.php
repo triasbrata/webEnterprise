@@ -4,7 +4,6 @@
 */
 use App\Http\Controllers\Controller as BaseController;
 use App\Personal;
-
 class PersonalController extends BaseController
 {
 	private $model ;
@@ -22,7 +21,6 @@ class PersonalController extends BaseController
 		//sama saja dengan
 		//return view('personal.index',array('data'=>$data,'session'=>$session));
 	}
-
 	/**
 	 * fungsi untuk menampilkan form untuk menambah data
 	 */
@@ -32,7 +30,6 @@ class PersonalController extends BaseController
 		$form = $this->formLocation;
 		return view('personal.create',compact('form','session'));
 	}
-
 	/**
 	 * fungsi untuk menampilkan form untuk mengubah data
 	 */
@@ -43,7 +40,6 @@ class PersonalController extends BaseController
 		$form = $this->formLocation;
 		return view('personal.edit',compact('form','session','data'));
 	}
-
 	/**
 	 * fungsi untuk memperoses perbarui data
 	 */
@@ -52,7 +48,6 @@ class PersonalController extends BaseController
 		$this->model = $this->model->find($id);
 		return $this->updateStore();
 	}
-
 	/**
 	 * fungsi untuk memperoses  menyimpan data
 	 */
@@ -60,7 +55,6 @@ class PersonalController extends BaseController
 		
 		return $this->updateStore();
 	}
-
 	/**
 	 * fungsi untuk memperoses menyimpan dan memperbarui data
 	 */
@@ -79,7 +73,6 @@ class PersonalController extends BaseController
 		$this->model = $this->model->find($id);
 		return $this->model->delete()  ? redirect()->route('personal.index')->with('success','Personal Berhasil dihapus') : redirect()->back() ;
 	}
-
 	/**
 	 *  fungsi untuk mendaftarkan aturan pada saat di impan
 	 */

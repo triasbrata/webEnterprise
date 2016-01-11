@@ -143,12 +143,12 @@
              <i class="fa fa-book"></i> <span>Kartu Keluarga</span> <i class="fa fa-angle-right pull-right"></i>
              </a>
              <ul class="treeview-menu">
-               <li><a href="datapersonal.html"><i class="fa fa-circle-o"></i>Kelola Data Personal</a></li>
-               <li><a href="kelolaagama.html"><i class="fa fa-circle-o"></i>Kelola Agama</a></li>
-               <li><a href="kelolapendidikan.html"><i class="fa fa-circle-o"></i>kelola Pendidikan</a></li>
-               <li><a href="kelolapekerjaan.html"><i class="fa fa-circle-o"></i>kelola Pekerjaan</a></li>
-               <li><a href="kelolastatuskawin.html"><i class="fa fa-circle-o"></i>kelola Status Perkawinan</a></li>
-               <li><a href="kelolastatushubungan.html"><i class="fa fa-circle-o"></i>kelola Status Hubungan </a></li>
+               <li><a href={{url('kependudukan')}}><i class="fa fa-circle-o"></i>Kelola Data Personal</a></li>
+               <li><a href={{url('agama')}}><i class="fa fa-circle-o"></i>Kelola Agama</a></li>
+               <li><a href={{url('pendidikan')}}><i class="fa fa-circle-o"></i>kelola Pendidikan</a></li>
+               <li><a href={{url('pekerjaan')}}><i class="fa fa-circle-o"></i>kelola Pekerjaan</a></li>
+               <li><a href={{url('statusperkawinan')}}><i class="fa fa-circle-o"></i>kelola Status Perkawinan</a></li>
+               <li><a href={{url('statushubungan')}}><i class="fa fa-circle-o"></i>kelola Status Hubungan </a></li>
              </ul>
            </li>
 
@@ -158,16 +158,16 @@
              <i class="fa fa-book"></i> <span>Data Regional</span> <i class="fa fa-angle-right pull-right"></i>
              </a>
              <ul class="treeview-menu">
-               <li><a href="kelolaprovinsi.html"><i class="fa fa-circle-o"></i>Kelola Data Provinsi</a></li>
-               <li><a href="kelolakabupaten.html"><i class="fa fa-circle-o"></i>Kelola Data Kabupaten</a></li>
-               <li><a href="kelolakecamatan.html"><i class="fa fa-circle-o"></i>kelola Data Kecamatan</a></li>
-               <li><a href="kelolakelurahan.html"><i class="fa fa-circle-o"></i>kelola Data kelurahan</a></li></li>
+               <li><a href={{url('provinsi')}}><i class="fa fa-circle-o"></i>Kelola Data Provinsi</a></li>
+               <li><a href={{url('kabupaten')}}><i class="fa fa-circle-o"></i>Kelola Data Kabupaten</a></li>
+               <li><a href={{url('kecamatan')}}><i class="fa fa-circle-o"></i>kelola Data Kecamatan</a></li>
+               <li><a href={{url('kelurahan')}}><i class="fa fa-circle-o"></i>kelola Data kelurahan</a></li></li>
              </ul>
            </li>
            <li class="header">KEPALA DESA</li>
            <li class="treeview">
-             <a href="kepaladesa.html">
-               <i class="fa fa-book"></i> <span>Data Kepala Desa</span>
+             <a href={{url('kepaladinas')}}>
+               <i class="fa fa-book"></i> <span>Data Kepala Dinas</span>
              </a>
            </li>
            

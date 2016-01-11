@@ -1,8 +1,8 @@
 @extends('template.index')
 @section('box-header')
-	<h4>Manajement Agama</h4>
+	<h4>Manajement Kelurahan</h4>
 	<div class="pull-right">
-		<a href="{{url('agama/create')}}" class="btn btn-primary btn-sm">Tambah Agama</a>
+		<a href="{{url('kelurahan/create')}}" class="btn btn-primary btn-sm">Tambah Kelurahan</a>
 	</div>
 @stop
 @section('box-content')
@@ -10,23 +10,23 @@
 		<thead>
 			<tr>
 				<th>No</th>
-				<th>Agama</th>
+				<th>Kelurahan</th>
 				<th>Aksi</th>
 			</tr>
 			<?php $x=1; ?>
-			@foreach ($data as $agama)
+			@foreach ($data as $kelurahan)
 				<tr>
 					<td>
 						{{$x++}}
 					</td>
 					<td>
-						{{$agama->title}}
+						{{$kelurahan->label}}
 					</td>
 					<td>
-						<form action="{{url('agama/'.$agama->id)}}" method="POST">
+						<form action="{{url('kelurahan/'.$kelurahan->id)}}" method="POST">
 							<input name="_method" type="hidden" value="DELETE">
 							<div class="btn-group">
-							  	<a class="btn btn-flat btn-info btn-sm" href="{{url('agama/'.$agama->id.'/edit')}}"><i class="fa fa-pencil"></i> Ubah</a>
+							  	<a class="btn btn-flat btn-info btn-sm" href="{{url('kelurahan/'.$kelurahan->id.'/edit')}}"><i class="fa fa-pencil"></i> Ubah</a>
 							  	<button type="submit" class="btn btn-danger btn-flat btn-sm"><i class="fa fa-eraser"></i> Hapus</button>
 					  		</div>
 						</form>
