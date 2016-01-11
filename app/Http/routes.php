@@ -16,3 +16,4 @@ Route::resource('statusperkawinan','StatusPerkawinanController');
 Route::resource('kecamatan','KecamatanController');
 Route::resource('kelurahan','KelurahanController');
 Route::resource('kepaladinas','KadisController');
+Route::resource('penduduk','PersonalController');
