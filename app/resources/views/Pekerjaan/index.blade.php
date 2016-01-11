@@ -14,7 +14,7 @@
                 <th>Aksi</th>
             </tr>
             <?php $x=1; ?>
-            @foreach ($data as $pekerjaan
+            @foreach ($data as $pekerjaan)
                 <tr>
                     <td>
                         {{$x++}}
