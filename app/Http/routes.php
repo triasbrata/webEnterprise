@@ -8,3 +8,7 @@ Route::resource('penduduk','PersonalController');
 Route::resource('pekerjaan','PekerjaanController');
 Route::resource('pendidikan','PendidikanController');
 Route::resource('statusperkawinan','StatusPerkawinanController');
+
+Route::resource('Kecamatan','KecamatanController');
+Route::resource('Kelurahan','KelurahanController');
+Route::resource('KepalaDinas','KepalaDinasController');

@@ -18,6 +18,8 @@ class AgamaController extends BaseController
 	public function index()
 	{
 		$data = $this->model->all();
+
+		
 		$session = $this->session;
 		return view('agama.index',compact('data','session'));
 		//sama saja dengan
