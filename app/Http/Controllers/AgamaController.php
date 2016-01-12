@@ -24,6 +24,7 @@ class AgamaController extends BaseController
 		//return view('agama.index',array('data'=>$data,'session'=>$session));
 	}
 
+
 	/**
 	 * fungsi untuk menampilkan form untuk menambah data
 	 */
@@ -70,7 +71,7 @@ class AgamaController extends BaseController
 		if($this->validate()->fails()){
 			return redirect()->back()->with('error',$this->validate()->errors());
 		}
-		return $this->model->fill($this->request->only('title'))->save() ? redirect()->route('agama.index')->with('success','Agama Berhasil diperbarui/ditambahkan') : redirect()->back() ;
+		return $this->model->fill($this->request->only('label'))->save() ? redirect()->route('agama.index')->with('success','Agama Berhasil diperbarui/ditambahkan') : redirect()->back() ;
 	}
 	/**
 	 *  fungsi untuk menghapus data pada database
@@ -80,7 +81,6 @@ class AgamaController extends BaseController
 		$this->model = $this->model->find($id);
 		return $this->model->delete()  ? redirect()->route('agama.index')->with('success','Agama Berhasil dihapus') : redirect()->back() ;
 	}
-
 	/**
 	 *  fungsi untuk mendaftarkan aturan pada saat di impan
 	 */

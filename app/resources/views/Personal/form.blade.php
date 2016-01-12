@@ -3,6 +3,7 @@
 @inject('pendidikan','App\Pendidikan')
 @inject('pendidikan','App\Pendidikan')
 @inject('status_perkawinan','App\StatusPerkawinan')
+@inject('status_keluarga','App\StatusHubungan')
 <div class="form-group col-md-12">
 	<div class="input-group">
 		<span class="input-group-addon"><label for="nik">NIK</label></span>
@@ -45,8 +46,8 @@
 </div>
 <div class="form-group col-md-12">
 	<div class="input-group">
-		<span class="input-group-addon"><label for="title">Agama</label></span>
-		<select  name="jenis_kelamin"  id="jenis_kelamin"class="form-control">
+		<span class="input-group-addon"><label for="agama_id">Agama</label></span>
+		<select  name="agama_id"  id="agama_id"class="form-control">
 			@foreach ( $agamas->lists('title','id') as $key => $value)
 				<option
 				@if (isset($data->agama) && $key == $data->agama->id)
@@ -62,8 +63,8 @@
 </div>
 <div class="form-group col-md-12">
 	<div class="input-group">
-		<span class="input-group-addon"><label for="pekerjaan">Pekerjaan</label></span>
-		<select  name="pekerjaan"  id="pekerjaan"class="form-control">
+		<span class="input-group-addon"><label for="pekerjaan_id">Pekerjaan</label></span>
+		<select  name="pekerjaan_id"  id="pekerjaan_id"class="form-control">
 			@foreach ( $pekerjaan->lists('title','id') as $key => $value)
 				<option
 				@if (isset($data->pekerjaan) && $key == $data->pekerjaan->id)
@@ -79,8 +80,8 @@
 </div>
 <div class="form-group col-md-12">
 	<div class="input-group">
-		<span class="input-group-addon"><label for="pendidikan">Pendidikan</label></span>
-		<select  name="pendidikan"  id="pendidikan"class="form-control">
+		<span class="input-group-addon"><label for="pendidikan_id">Pendidikan</label></span>
+		<select  name="pendidikan_id"  id="pendidikan_id"class="form-control">
 			@foreach ( $pendidikan->lists('title','id') as $key => $value)
 				<option
 				@if (isset($data->pendidikan) && $key == $data->pendidikan->id)
@@ -96,8 +97,8 @@
 </div>
 <div class="form-group col-md-12">
 	<div class="input-group">
-		<span class="input-group-addon"><label for="title">Status Perkawinan</label></span>
-		<select  name="status_perkawinan"  id="status_perkawinan"class="form-control">
+		<span class="input-group-addon"><label for="status_perkawinan_id">Status Perkawinan</label></span>
+		<select  name="status_perkawinan_id"  id="status_perkawinan_id"class="form-control">
 			@foreach ( $status_perkawinan->lists('title','id') as $key => $value)
 				<option
 				@if (isset($data->status_perkawinan) && $key == $data->status_perkawinan->id)
@@ -113,8 +114,25 @@
 </div>
 <div class="form-group col-md-12">
 	<div class="input-group">
-		<span class="input-group-addon"><label for="title">Status Kewarganegaraan</label></span>
-		<select  name="status_perkawinan"  id="status_perkawinan"class="form-control">
+		<span class="input-group-addon"><label for="status_keluarga_id">Status Dalam Keluarga</label></span>
+		<select  name="status_keluarga_id"  id="status_keluarga_id"class="form-control">
+			@foreach ( $status_keluarga->lists('title','id') as $key => $value)
+				<option
+				@if (isset($data->status_keluarga) && $key == $data->status_keluarga->id)
+					selected
+				@endif
+				value="{{$key}}"
+				>
+					{{$value}}
+				</option>
+			@endforeach
+		</select>
+	</div>
+</div>
+<div class="form-group col-md-12">
+	<div class="input-group">
+		<span class="input-group-addon"><label for="kewarganegaraan">Status Kewarganegaraan</label></span>
+		<select  name="kewarganegaraan"  id="kewarganegaraan"class="form-control">
 			@foreach ( ['WNI','WNA'] as $key)
 				<option
 				@if (isset($data->kewarganegaraan) && $key == $data->kewarganegaraan)

@@ -1,8 +1,8 @@
 @extends('template.index')
 @section('box-header')
-	<h4>Manajement Agama</h4>
+	<h4>Manajement Penduduk</h4>
 	<div class="pull-right">
-		<a href="{{url('agama/create')}}" class="btn btn-primary btn-sm">Tambah Agama</a>
+		<a href="{{url('penduduk/create')}}" class="btn btn-primary btn-sm">Tambah Penduduk</a>
 	</div>
 @stop
 @section('box-content')
@@ -10,23 +10,23 @@
 		<thead>
 			<tr>
 				<th>No</th>
-				<th>Agama</th>
-				<th>Aksi</th>
+				<th>NIK</th>
+				<th>Nama Penduduk</th>
+				<th>Jenis Kelamin</th>
 			</tr>
 			<?php $x=1; ?>
-			@foreach ($data as $agama)
+			@foreach ($data as $penduduk)
 				<tr>
-					<td>
-						{{$x++}}
-					</td>
-					<td>
-						{{$agama->title}}
-					</td>
-					<td>
-						<form action="{{url('agama/'.$agama->id)}}" method="POST">
+					<td> {{$x++}} </td>
+					<td> {{$penduduk->nik}} </td>
+					<td> {{$penduduk->nama}} </td>
+					<td> {{$penduduk->jenis_kelamin}} </td>
+					 <td>
+						<form action="{{url('penduduk/'.$penduduk->id)}}" method="POST" class="pull-right">
 							<input name="_method" type="hidden" value="DELETE">
 							<div class="btn-group">
-							  	<a class="btn btn-flat btn-info btn-sm" href="{{url('agama/'.$agama->id.'/edit')}}"><i class="fa fa-pencil"></i> Ubah</a>
+							  	<a class="btn btn-flat btn-info btn-sm" href="{{url('penduduk/'.$penduduk->id.'/edit')}}"><i class="fa fa-pencil"></i> Ubah</a>
+							  	<a class="btn btn-flat btn-warning btn-sm" href="{{url('penduduk/'.$penduduk->id)}}"><i class="fa fa-eye"></i> Lihat</a>
 							  	<button type="submit" class="btn btn-danger btn-flat btn-sm"><i class="fa fa-eraser"></i> Hapus</button>
 					  		</div>
 						</form>

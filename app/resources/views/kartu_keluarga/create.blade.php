@@ -3,7 +3,7 @@
 	<h4>Tambah Agama</h4>
 @stop
 @section('box-content')
-	<form class="form-horizontal" action="{{url('penduduk')}}" method="POST">
+	<form class="form-horizontal" action="{{url('kartu_keluarga')}}" method="POST">
 		<div class="box-body">
 				@include($form)
 		</div>

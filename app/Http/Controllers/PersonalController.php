@@ -40,6 +40,13 @@ class PersonalController extends BaseController
 		$form = $this->formLocation;
 		return view('personal.edit',compact('form','session','data'));
 	}
+	public function show($id)
+	{
+		$data = $this->model->find($id)->with('agama','pendidikan')->get()->first();
+		$session = $this->session;
+		$form = $this->formLocation;
+		return view('personal.show',compact('form','session','data'));
+	}
 	/**
 	 * fungsi untuk memperoses perbarui data
 	 */
@@ -63,7 +70,7 @@ class PersonalController extends BaseController
 		if($this->validate()->fails()){
 			return redirect()->back()->with('error',$this->validate()->errors());
 		}
-		return $this->model->fill($this->request->only('title'))->save() ? redirect()->route('personal.index')->with('success','Personal Berhasil diperbarui/ditambahkan') : redirect()->back() ;
+		return $this->model->fill($this->request->all())->save() ? redirect()->route('penduduk.index')->with('success','Personal Berhasil diperbarui/ditambahkan') : redirect()->back() ;
 	}
 	/**
 	 *  fungsi untuk menghapus data pada database
@@ -71,7 +78,7 @@ class PersonalController extends BaseController
 	public function destroy($id)
 	{
 		$this->model = $this->model->find($id);
-		return $this->model->delete()  ? redirect()->route('personal.index')->with('success','Personal Berhasil dihapus') : redirect()->back() ;
+		return $this->model->delete()  ? redirect()->route('penduduk.index')->with('success','Personal Berhasil dihapus') : redirect()->back() ;
 	}
 	/**
 	 *  fungsi untuk mendaftarkan aturan pada saat di impan
@@ -84,10 +91,11 @@ class PersonalController extends BaseController
 			'jenis_kelamin' => 'required',
 			'tempat_lahir' => 'required',
 			'tanggal_lahir' => 'required',
-			'pendidikan' => 'required',
-			'pekerjaan' => 'required',
-			'status_perkawinana' => 'required',
-			'status_keluarga' => 'required',
+			'pendidikan_id' => 'required',
+			'agama_id' => 'required',
+			'pekerjaan_id' => 'required',
+			'status_perkawinan_id' => 'required',
+			'status_keluarga_id' => 'required',
 			'kewarganegaraan' => 'required',
 			'no_pasport' => 'required',
 			'no_kitas' => 'required',
@@ -102,7 +110,12 @@ class PersonalController extends BaseController
 	{
 		return[
 			'ayah'=>'Nama Ayah',
-			'ibu'=>'Nama Ibu'
+			'ibu'=>'Nama Ibu',
+			'pendidikan_id' => 'Pendidikan',
+			'agama_id' => 'Agama',
+			'pekerjaan_id' => 'Pekerjaan',
+			'status_perkawinan_id' => 'Status Perkawinana',
+			'status_keluarga_id' => 'Status Keluarga',
 		];
 	}
 }

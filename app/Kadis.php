@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kadis extends Model
 {
+	protected $table = 'kepala_dinas';
 	public $timestamps = false;
-	protected $fillable = ['nama'];
-	protected $fillable = ['nip'];
+	protected $fillable = ['nama','nip'];
 	
 }
